@@ -12,7 +12,23 @@ module.exports = {
     //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
     //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
     //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-
+    
+    itle: {
+      type: 'string',
+      required: true,
+      minLength: 3,
+      maxLength: 50
+    },
+    start: {
+      type: 'date',
+      required: true,
+    },
+    end: {
+      type: 'date',
+    },
+    wayPoints: {
+      type: 'json',
+    },
 
     //  ╔═╗╔╦╗╔╗ ╔═╗╔╦╗╔═╗
     //  ║╣ ║║║╠╩╗║╣  ║║╚═╗
