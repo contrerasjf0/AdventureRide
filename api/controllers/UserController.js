@@ -12,9 +12,19 @@ module.exports = {
    * `UserController.sigup()`
    */
   sigup: async function (req, res) {
-    return res.json({
-      todo: 'sigup() is not implemented yet!'
-    });
+    try {
+      const schema = joi.object().keys({
+        email: joi.string().required().email(),
+        password: joi.string().required(),
+      });
+      const params = await joi.validate(req.allParams(), schema);
+      return res.ok(params);
+    } catch (err) {
+      if (err.name === 'ValidationError') {
+        return res.badRequest({err}).json();
+      }
+      return res.serverError(err).json();
+    }
   },
 
   /**
